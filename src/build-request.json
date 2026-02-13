@@ -1,0 +1,55 @@
+{
+  "kind": "build_request",
+  "title": "Update site theme to classic blue, turquoise, and gold",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Update the global theme color tokens to a classic palette of blue (primary), turquoise (secondary), and gold (accent) using the existing CSS variable (OKLCH) theme system so Tailwind/Shadcn theme utilities automatically inherit the new colors in both light and dark modes.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Classic blue, turquoise, and gold"
+        ]
+      },
+      "acceptanceCriteria": [
+        "In both frontend/index.css and frontend/src/index.css, the CSS variables for --primary/--secondary/--accent (and their -foreground counterparts) are updated to reflect a classic blue, turquoise, and gold palette.",
+        "Light mode and dark mode remain readable (sufficient contrast between background/foreground and for buttons/links).",
+        "No Tailwind config changes are required beyond continuing to map colors to CSS variables as currently implemented."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Replace any hardcoded mint/emerald/green/gray/white color utilities in site sections and navigation with theme token-based classes (e.g., bg-background, text-foreground, text-primary, bg-secondary, text-accent-foreground, border-border) so the updated blue/turquoise/gold theme is applied consistently across the app.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Classic blue, turquoise, and gold"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Components that currently use hardcoded emerald/green styling (e.g., AdminPanelSection headings/buttons) are updated to use theme tokens instead of fixed Tailwind colors like text-emerald-700 or bg-emerald-600.",
+        "Nav bar, hero, forms, cards, and admin overlay all visually reflect the updated theme without leftover mint/emerald-specific colors.",
+        "The page background gradient continues to work with the new palette and does not clash with text readability."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit files under frontend/src/components/ui (read-only shadcn components); compose via props/classes from consuming components instead.",
+    "Do not modify immutable hook files listed in SYSTEM_CONTEXT (e.g., frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx)."
+  ],
+  "nonGoals": [
+    "No backend changes (Motoko actor logic/persistence) are required for this theme update.",
+    "Do not change app content, section structure, or add new features unrelated to theming."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

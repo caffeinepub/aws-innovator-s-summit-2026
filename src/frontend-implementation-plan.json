@@ -1,0 +1,54 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Retheme app to classic blue, turquoise, and gold using existing OKLCH tokens",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Update OKLCH CSS variables for primary/secondary/accent (and foreground counterparts) to a classic blue/turquoise/gold palette in light and dark modes so Tailwind + shadcn theme utilities inherit automatically.",
+      "acceptanceCriteria": [
+        "In both frontend/index.css and frontend/src/index.css, the CSS variables for --primary/--secondary/--accent (and their -foreground counterparts) are updated to reflect a classic blue, turquoise, and gold palette.",
+        "Light mode and dark mode remain readable (sufficient contrast between background/foreground and for buttons/links).",
+        "No Tailwind config changes are required beyond continuing to map colors to CSS variables as currently implemented."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/index.css",
+          "operation": "modify",
+          "description": "Update :root and .dark theme tokens for --primary/--secondary/--accent and their -foreground counterparts to classic blue (primary), turquoise (secondary), and gold (accent) using the existing OKLCH CSS variable system so Tailwind/shadcn-ui color utilities inherit automatically. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Mirror the same OKLCH token updates for --primary/--secondary/--accent and their -foreground counterparts in both :root and .dark to keep the theme consistent regardless of which global stylesheet is referenced by the app. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Replace hardcoded mint/emerald/green/gray/white Tailwind utilities in app sections/navigation with theme token-based classes to ensure consistent theming and readable gradients.",
+      "acceptanceCriteria": [
+        "Components that currently use hardcoded emerald/green styling (e.g., AdminPanelSection headings/buttons) are updated to use theme tokens instead of fixed Tailwind colors like text-emerald-700 or bg-emerald-600.",
+        "Nav bar, hero, forms, cards, and admin overlay all visually reflect the updated theme without leftover mint/emerald-specific colors.",
+        "The page background gradient continues to work with the new palette and does not clash with text readability."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/sections/AdminPanelSection.tsx",
+          "operation": "modify",
+          "description": "Replace hardcoded emerald/white/gray Tailwind classes with theme token-based classes (e.g., text-primary, bg-card, bg-primary, text-primary-foreground, bg-muted, border-border) while continuing to compose styling via consuming component className props (do not edit shadcn-ui files under frontend/src/components/ui). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/AdminPanelOverlay.tsx",
+          "operation": "modify",
+          "description": "Replace hardcoded overlay backdrop colors (e.g., bg-black/bg-opacity-50) with theme token-based classes (e.g., foreground/background-based alpha utilities) so the admin overlay visually aligns with the updated palette while keeping content readable. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Audit and, if needed, adjust the page-level background gradient class usage to ensure it remains token-based and readable with the new blue/turquoise/gold palette (keep the same section structure and no new features). Verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}

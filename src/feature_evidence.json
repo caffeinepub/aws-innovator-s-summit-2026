@@ -1,0 +1,43 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-update-the-global-theme-color-tokens-to-a-classic-palette-of-blue-primary-turquoise-secondary-and-gold-accent-using-the-existing-css-variable-oklch-theme-system-so-tailwind-shadcn-theme-utilities-automatically-inherit-the-new-colors-in-both-light-and-dark-modes",
+      "featureTitle": "Update the global theme color tokens to a classic palette of blue (primary), turquoise (secondary), and gold (accent) using the existing CSS variable (OKLCH) theme system so Tailwind/Shadcn theme utilities automatically inherit the new colors in both light and dark modes.",
+      "files": [
+        "frontend/index.css",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-replace-any-hardcoded-mint-emerald-green-gray-white-color-utilities-in-site-sections-and-navigation-with-theme-token-based-classes-e-g-bg-background-text-foreground-text-primary-bg-secondary-text-accent-foreground-border-border-so-the-updated-blue-turquoise-gold-theme-is-applied-consistently-across-the-app",
+      "featureTitle": "Replace any hardcoded mint/emerald/green/gray/white color utilities in site sections and navigation with theme token-based classes (e.g., bg-background, text-foreground, text-primary, bg-secondary, text-accent-foreground, border-border) so the updated blue/turquoise/gold theme is applied consistently across the app.",
+      "files": [
+        "frontend/src/components/AdminPanelOverlay.tsx",
+        "frontend/src/components/sections/AdminPanelSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

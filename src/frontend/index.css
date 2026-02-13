@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.625rem;
+        /* Light cream background */
+        --background: 0.97 0.01 85;
+        /* Classic blue text */
+        --foreground: 0.35 0.10 250;
+        /* White cards */
+        --card: 0.99 0.005 85;
+        --card-foreground: 0.35 0.10 250;
+        --popover: 0.99 0.005 85;
+        --popover-foreground: 0.35 0.10 250;
+        /* Classic blue primary */
+        --primary: 0.45 0.12 250;
+        --primary-foreground: 0.99 0.005 85;
+        /* Turquoise secondary */
+        --secondary: 0.70 0.10 200;
+        --secondary-foreground: 0.99 0.005 85;
+        /* Light turquoise muted */
+        --muted: 0.92 0.03 200;
+        --muted-foreground: 0.50 0.08 250;
+        /* Gold accent */
+        --accent: 0.75 0.12 75;
+        --accent-foreground: 0.30 0.08 250;
+        --destructive: 0.577 0.245 27.325;
+        --destructive-foreground: 0.985 0 0;
+        /* Soft borders */
+        --border: 0.88 0.02 220;
+        --input: 0.88 0.02 220;
+        /* Classic blue ring */
+        --ring: 0.45 0.12 250;
+        --chart-1: 0.646 0.222 41.116;
+        --chart-2: 0.6 0.118 184.704;
+        --chart-3: 0.398 0.07 227.392;
+        --chart-4: 0.828 0.189 84.429;
+        --chart-5: 0.769 0.188 70.08;
+        --sidebar: 0.99 0.005 85;
+        --sidebar-foreground: 0.35 0.10 250;
+        --sidebar-primary: 0.45 0.12 250;
+        --sidebar-primary-foreground: 0.99 0.005 85;
+        --sidebar-accent: 0.92 0.03 200;
+        --sidebar-accent-foreground: 0.35 0.10 250;
+        --sidebar-border: 0.88 0.02 220;
+        --sidebar-ring: 0.45 0.12 250;
+    }
+
+    .dark {
+        /* Dark blue background */
+        --background: 0.20 0.08 250;
+        /* Light cream text */
+        --foreground: 0.97 0.01 85;
+        /* Darker blue cards */
+        --card: 0.28 0.08 250;
+        --card-foreground: 0.97 0.01 85;
+        --popover: 0.28 0.08 250;
+        --popover-foreground: 0.97 0.01 85;
+        /* Turquoise primary */
+        --primary: 0.70 0.10 200;
+        --primary-foreground: 0.20 0.08 250;
+        /* Medium blue secondary */
+        --secondary: 0.40 0.10 250;
+        --secondary-foreground: 0.97 0.01 85;
+        /* Muted blue */
+        --muted: 0.35 0.08 250;
+        --muted-foreground: 0.80 0.02 200;
+        /* Gold accent */
+        --accent: 0.70 0.12 75;
+        --accent-foreground: 0.20 0.08 250;
+        --destructive: 0.704 0.191 22.216;
+        --destructive-foreground: 0.97 0.01 85;
+        --border: 0.38 0.08 250;
+        --input: 0.38 0.08 250;
+        --ring: 0.70 0.10 200;
+        --chart-1: 0.488 0.243 264.376;
+        --chart-2: 0.696 0.17 162.48;
+        --chart-3: 0.769 0.188 70.08;
+        --chart-4: 0.627 0.265 303.9;
+        --chart-5: 0.645 0.246 16.439;
+        --sidebar: 0.28 0.08 250;
+        --sidebar-foreground: 0.97 0.01 85;
+        --sidebar-primary: 0.70 0.10 200;
+        --sidebar-primary-foreground: 0.20 0.08 250;
+        --sidebar-accent: 0.40 0.10 250;
+        --sidebar-accent-foreground: 0.97 0.01 85;
+        --sidebar-border: 0.38 0.08 250;
+        --sidebar-ring: 0.70 0.10 200;
+    }
+
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}

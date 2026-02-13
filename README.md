@@ -1,2 +1,3 @@
-# aws-innovator-s-summit-2026
-Exported from Caffeine project: Update site theme to classic blue, turquoise, and gold
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

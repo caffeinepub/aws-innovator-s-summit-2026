@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "New project",
+  "architectural_notes": [
+    "Theme palette: classic blue, turquoise, and gold"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-update-the-global-theme-color-tokens-to-a-classic-palette-of-blue-primary-turquoise-secondary-and-gold-accent-using-the-existing-css-variable-oklch-theme-system-so-tailwind-shadcn-theme-utilities-automatically-inherit-the-new-colors-in-both-light-and-dark-modes",
+      "title": "Update the global theme color tokens to a classic palette of blue (primary), turquoise (secondary), and gold (accent) using the existing CSS variable (OKLCH) theme system so Tailwind/Shadcn theme utilities automatically inherit the new colors in both light and dark modes.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-any-hardcoded-mint-emerald-green-gray-white-color-utilities-in-site-sections-and-navigation-with-theme-token-based-classes-e-g-bg-background-text-foreground-text-primary-bg-secondary-text-accent-foreground-border-border-so-the-updated-blue-turquoise-gold-theme-is-applied-consistently-across-the-app",
+      "title": "Replace any hardcoded mint/emerald/green/gray/white color utilities in site sections and navigation with theme token-based classes (e.g., bg-background, text-foreground, text-primary, bg-secondary, text-accent-foreground, border-border) so the updated blue/turquoise/gold theme is applied consistently across the app.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Set app theme color palette to classic blue, turquoise, and gold",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Update site theme to classic blue, turquoise, and gold",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

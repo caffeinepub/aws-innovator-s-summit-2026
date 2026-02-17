@@ -89,10 +89,132 @@ export class ExternalBlob {
         return this;
     }
 }
-export interface backendInterface {
+export type EventId = bigint;
+export interface ProgrammeOverview {
+    last_updated: string;
+    events: Array<Event>;
 }
+export interface Event {
+    id: EventId;
+    title: string;
+    description: string;
+    end_time: string;
+    start_time: string;
+    location: string;
+}
+export interface backendInterface {
+    addEvent(title: string, description: string, start_time: string, end_time: string, location: string): Promise<EventId>;
+    deleteEvent(id: EventId): Promise<void>;
+    getAllEvents(): Promise<Array<Event>>;
+    getEvent(id: EventId): Promise<Event | null>;
+    getProgrammeOverview(): Promise<ProgrammeOverview>;
+    updateEvent(id: EventId, title: string, description: string, start_time: string, end_time: string, location: string): Promise<void>;
+    updateProgrammeOverview(lastUpdateTime: string): Promise<void>;
+}
+import type { Event as _Event } from "./declarations/backend.did.d.ts";
 export class Backend implements backendInterface {
     constructor(private actor: ActorSubclass<_SERVICE>, private _uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, private _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, private processError?: (error: unknown) => never){}
+    async addEvent(arg0: string, arg1: string, arg2: string, arg3: string, arg4: string): Promise<EventId> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.addEvent(arg0, arg1, arg2, arg3, arg4);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.addEvent(arg0, arg1, arg2, arg3, arg4);
+            return result;
+        }
+    }
+    async deleteEvent(arg0: EventId): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.deleteEvent(arg0);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.deleteEvent(arg0);
+            return result;
+        }
+    }
+    async getAllEvents(): Promise<Array<Event>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getAllEvents();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getAllEvents();
+            return result;
+        }
+    }
+    async getEvent(arg0: EventId): Promise<Event | null> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getEvent(arg0);
+                return from_candid_opt_n1(this._uploadFile, this._downloadFile, result);
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getEvent(arg0);
+            return from_candid_opt_n1(this._uploadFile, this._downloadFile, result);
+        }
+    }
+    async getProgrammeOverview(): Promise<ProgrammeOverview> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getProgrammeOverview();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getProgrammeOverview();
+            return result;
+        }
+    }
+    async updateEvent(arg0: EventId, arg1: string, arg2: string, arg3: string, arg4: string, arg5: string): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.updateEvent(arg0, arg1, arg2, arg3, arg4, arg5);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.updateEvent(arg0, arg1, arg2, arg3, arg4, arg5);
+            return result;
+        }
+    }
+    async updateProgrammeOverview(arg0: string): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.updateProgrammeOverview(arg0);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.updateProgrammeOverview(arg0);
+            return result;
+        }
+    }
+}
+function from_candid_opt_n1(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [_Event]): Event | null {
+    return value.length === 0 ? null : value[0];
 }
 export interface CreateActorOptions {
     agent?: Agent;

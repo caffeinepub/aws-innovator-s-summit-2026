@@ -1,26 +1,16 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "New project",
-  "architectural_notes": [
-    "Theme palette: classic blue, turquoise, and gold"
-  ],
+  "summary": "Project to edit, format, and publish (upload) a day-wise Programme Overview (3-day event schedule) to the user's homepage/production site.",
+  "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-update-the-global-theme-color-tokens-to-a-classic-palette-of-blue-primary-turquoise-secondary-and-gold-accent-using-the-existing-css-variable-oklch-theme-system-so-tailwind-shadcn-theme-utilities-automatically-inherit-the-new-colors-in-both-light-and-dark-modes",
-      "title": "Update the global theme color tokens to a classic palette of blue (primary), turquoise (secondary), and gold (accent) using the existing CSS variable (OKLCH) theme system so Tailwind/Shadcn theme utilities automatically inherit the new colors in both light and dark modes.",
+      "id": "feature-update-the-homepage-programme-overview-section-frontend-src-components-sections-programmesection-tsx-so-it-matches-the-provided-cleaned-day-wise-programme-overview-content-in-clear-english-day-1-day-3-may-1-3-2026-including-each-day-s-date-label-weekday-label-theme-title-and-the-correct-time-slot-to-activity-pairings",
+      "title": "Update the homepage Programme Overview section (frontend/src/components/sections/ProgrammeSection.tsx) so it matches the provided cleaned, day-wise Programme Overview content in clear English (DAY 1–DAY 3, May 1–3, 2026), including each day’s date label, weekday label, theme/title, and the correct time-slot-to-activity pairings.",
       "reqIds": [
         "REQ-1"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-replace-any-hardcoded-mint-emerald-green-gray-white-color-utilities-in-site-sections-and-navigation-with-theme-token-based-classes-e-g-bg-background-text-foreground-text-primary-bg-secondary-text-accent-foreground-border-border-so-the-updated-blue-turquoise-gold-theme-is-applied-consistently-across-the-app",
-      "title": "Replace any hardcoded mint/emerald/green/gray/white color utilities in site sections and navigation with theme token-based classes (e.g., bg-background, text-foreground, text-primary, bg-secondary, text-accent-foreground, border-border) so the updated blue/turquoise/gold theme is applied consistently across the app.",
-      "reqIds": [
-        "REQ-2"
       ],
       "version": 1
     }
@@ -28,12 +18,20 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Set app theme color palette to classic blue, turquoise, and gold",
+      "summary": "Upload/publish the cleaned day-wise Programme Overview content to the site/homepage",
       "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Publish (upload) the updated Programme Overview to the live homepage so the new schedule is visible in production.",
+      "reqIds": [
+        "REQ-2"
+      ],
       "status": "pending"
     }
   ],
-  "projectName": "Update site theme to classic blue, turquoise, and gold",
+  "projectName": "Publish updated Programme Overview to homepage",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

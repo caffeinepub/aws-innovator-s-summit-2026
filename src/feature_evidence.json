@@ -2,11 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-global-theme-color-tokens-to-a-classic-palette-of-blue-primary-turquoise-secondary-and-gold-accent-using-the-existing-css-variable-oklch-theme-system-so-tailwind-shadcn-theme-utilities-automatically-inherit-the-new-colors-in-both-light-and-dark-modes",
-      "featureTitle": "Update the global theme color tokens to a classic palette of blue (primary), turquoise (secondary), and gold (accent) using the existing CSS variable (OKLCH) theme system so Tailwind/Shadcn theme utilities automatically inherit the new colors in both light and dark modes.",
+      "featureId": "feature-update-the-homepage-programme-overview-section-frontend-src-components-sections-programmesection-tsx-so-it-matches-the-provided-cleaned-day-wise-programme-overview-content-in-clear-english-day-1-day-3-may-1-3-2026-including-each-day-s-date-label-weekday-label-theme-title-and-the-correct-time-slot-to-activity-pairings",
+      "featureTitle": "Update the homepage Programme Overview section (frontend/src/components/sections/ProgrammeSection.tsx) so it matches the provided cleaned, day-wise Programme Overview content in clear English (DAY 1–DAY 3, May 1–3, 2026), including each day’s date label, weekday label, theme/title, and the correct time-slot-to-activity pairings.",
       "files": [
-        "frontend/index.css",
-        "frontend/src/index.css"
+        "frontend/src/components/sections/ProgrammeSection.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -17,25 +16,6 @@
       ],
       "testIds": [
         "REQ-1"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-replace-any-hardcoded-mint-emerald-green-gray-white-color-utilities-in-site-sections-and-navigation-with-theme-token-based-classes-e-g-bg-background-text-foreground-text-primary-bg-secondary-text-accent-foreground-border-border-so-the-updated-blue-turquoise-gold-theme-is-applied-consistently-across-the-app",
-      "featureTitle": "Replace any hardcoded mint/emerald/green/gray/white color utilities in site sections and navigation with theme token-based classes (e.g., bg-background, text-foreground, text-primary, bg-secondary, text-accent-foreground, border-border) so the updated blue/turquoise/gold theme is applied consistently across the app.",
-      "files": [
-        "frontend/src/components/AdminPanelOverlay.tsx",
-        "frontend/src/components/sections/AdminPanelSection.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-2"
       ],
       "confidence": "high"
     }

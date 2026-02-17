@@ -7,24 +7,50 @@ export default function ProgrammeSection() {
 
   const days = [
     {
-      title: 'Day 1 – Inauguration & Foundation of Innovation',
-      description: [
-        'The summit begins with participant registration, welcome kit distribution, and an inaugural ceremony led by distinguished guests and school leadership. The opening session will introduce the theme "Design · Develop · Deliver" and outline the objectives of the summit.',
-        'Participants will engage in orientation sessions, team formation activities, and networking opportunities. Introductory workshops on robotics fundamentals, artificial intelligence basics, and innovation frameworks will set the foundation for the next two days.',
+      dayNumber: 'DAY 1',
+      date: '1ST MAY 2026',
+      weekday: 'FRIDAY',
+      theme: 'Arrival & Ice-Breaking',
+      schedule: [
+        { time: '10:00 AM - 3:00 PM', activity: 'Arrival of Participating Schools' },
+        { time: '3:00 PM - 4:00 PM', activity: 'Registration and Introduction' },
+        { time: '4:00 PM - 4:25 PM', activity: 'Tea Break' },
+        { time: '4:30 PM - 7:00 PM', activity: 'Ice-Breaking Activities' },
+        { time: '7:30 PM - 8:15 PM', activity: 'Dinner' },
       ],
     },
     {
-      title: 'Day 2 – Technical Workshops & Competitive Events',
-      description: [
-        'The second day focuses on intensive hands-on workshops and competitive challenges. Students will participate in robotics building sessions, coding challenges, AI model demonstrations, and real-time problem-solving activities.',
-        'Expert mentors will guide participants through advanced concepts such as automation systems, sensor integration, design thinking methodologies, and innovation strategy. Interactive panel discussions will provide insight into future career pathways in technology and entrepreneurship.',
+      dayNumber: 'DAY 2',
+      date: '2ND MAY 2026',
+      weekday: 'FRIDAY',
+      theme: 'Hands-on Workshops on Robotics & AI',
+      schedule: [
+        { time: '8:00 AM - 9:00 AM', activity: 'Breakfast' },
+        { time: '9:00 AM - 11:30 AM', activity: 'Opening Ceremony' },
+        { time: '11:30 AM - 12:00 PM', activity: 'Tea Break' },
+        { time: '12:00 PM - 1:00 PM', activity: 'Session 1st' },
+        { time: '1:30 PM - 2:30 PM', activity: 'Lunch' },
+        { time: '2:40 PM - 4:15 PM', activity: 'Session 2nd' },
+        { time: '4:15 PM - 4:45 PM', activity: 'Tea Break' },
+        { time: '4:45 PM - 6:00 PM', activity: 'Robotics & AI Workshops' },
+        { time: '7:30 PM Onwards', activity: 'Principal\'s Dinner + Quiz Hunt' },
       ],
     },
     {
-      title: 'Day 3 – Project Showcase & Grand Finale',
-      description: [
-        'The final day will feature project presentations, prototype demonstrations, and evaluation by an expert jury panel. Teams will present their innovations, explain their problem statements, and demonstrate technical implementation.',
-        'The summit concludes with an awards ceremony recognizing excellence in innovation, creativity, teamwork, and technical performance. Certificates and recognitions will be distributed, celebrating the achievements of all participating institutions.',
+      dayNumber: 'DAY 3',
+      date: '3RD MAY 2026',
+      weekday: 'FRIDAY',
+      theme: 'Design, Develop, Deliver',
+      schedule: [
+        { time: '8:00 AM - 9:00 AM', activity: 'Breakfast' },
+        { time: '9:15 AM - 11:30 AM', activity: '\'Design, Develop, Deliver\' Session' },
+        { time: '11:30 AM - 12:00 PM', activity: 'Tea Break' },
+        { time: '12:00 PM - 1:00 PM', activity: '\'Design, Develop, Deliver\' Continues' },
+        { time: '1:15 PM - 2:15 PM', activity: 'Lunch' },
+        { time: '2:30 PM - 3:30 PM', activity: 'Presentation Setup' },
+        { time: '3:45 PM - 5:30 PM', activity: 'Judgement of Presentations' },
+        { time: '5:30 PM - 6:00 PM', activity: 'High Tea' },
+        { time: '6:30 PM Onwards', activity: 'Prize Distribution & Closing Ceremony' },
       ],
     },
   ];
@@ -42,12 +68,24 @@ export default function ProgrammeSection() {
               key={index}
               className="bg-secondary border-l-4 border-primary p-6 rounded-r-lg shadow-md hover:shadow-lg transition-all hover:-translate-y-1"
             >
-              <h3 className="text-2xl font-bold text-primary mb-4">{day.title}</h3>
-              <div className="space-y-4">
-                {day.description.map((paragraph, idx) => (
-                  <p key={idx} className="text-foreground leading-relaxed">
-                    {paragraph}
-                  </p>
+              <div className="mb-4">
+                <h3 className="text-2xl font-bold text-primary">{day.dayNumber}</h3>
+                <p className="text-lg font-semibold text-accent-foreground">
+                  {day.date} · {day.weekday}
+                </p>
+                <p className="text-xl font-medium text-foreground mt-2">{day.theme}</p>
+              </div>
+              
+              <div className="space-y-3 mt-4">
+                {day.schedule.map((item, idx) => (
+                  <div key={idx} className="flex flex-col sm:flex-row sm:gap-4 border-l-2 border-accent/30 pl-4 py-2">
+                    <span className="text-sm font-semibold text-accent-foreground min-w-[180px]">
+                      {item.time}
+                    </span>
+                    <span className="text-foreground">
+                      {item.activity}
+                    </span>
+                  </div>
                 ))}
               </div>
             </div>

@@ -1,55 +1,66 @@
 {
   "kind": "build_request",
-  "title": "Update site theme to classic blue, turquoise, and gold",
+  "title": "Publish updated Programme Overview to homepage",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Update the global theme color tokens to a classic palette of blue (primary), turquoise (secondary), and gold (accent) using the existing CSS variable (OKLCH) theme system so Tailwind/Shadcn theme utilities automatically inherit the new colors in both light and dark modes.",
+      "text": "Update the homepage Programme Overview section (frontend/src/components/sections/ProgrammeSection.tsx) so it matches the provided cleaned, day-wise Programme Overview content in clear English (DAY 1–DAY 3, May 1–3, 2026), including each day’s date label, weekday label, theme/title, and the correct time-slot-to-activity pairings.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "Classic blue, turquoise, and gold"
+          "upload it"
         ]
       },
       "acceptanceCriteria": [
-        "In both frontend/index.css and frontend/src/index.css, the CSS variables for --primary/--secondary/--accent (and their -foreground counterparts) are updated to reflect a classic blue, turquoise, and gold palette.",
-        "Light mode and dark mode remain readable (sufficient contrast between background/foreground and for buttons/links).",
-        "No Tailwind config changes are required beyond continuing to map colors to CSS variables as currently implemented."
+        "The Programme Overview section renders three day cards (DAY 1, DAY 2, DAY 3).",
+        "DAY 1 shows theme 'Arrival & Ice-Breaking' and timings/activities: 10:00 AM – 3:00 PM Arrival; 3:00 PM – 4:00 PM Registration and Introduction; 4:00 PM – 4:25 PM Tea Break; 4:30 PM – 7:00 PM Ice-Breaking Activities; 7:30 PM – 8:15 PM Dinner.",
+        "DAY 2 shows theme 'Hands-on Workshops on Robotics & AI' and timings/activities: 8:00 AM – 9:00 AM Breakfast; 9:00 AM – 11:30 AM Opening Ceremony; 11:30 AM – 12:00 PM Tea Break; 12:00 PM – 1:00 PM Session 1st; 1:30 PM – 2:30 PM Lunch; 2:40 PM – 4:15 PM Session 2nd; 4:15 PM – 4:45 PM Tea Break; 4:45 PM – 6:00 PM Robotics & AI Workshops; 7:30 PM Onwards Principal’s Dinner + Quiz Hunt.",
+        "DAY 3 shows theme 'Design, Develop, Deliver' and timings/activities: 8:00 AM – 9:00 AM Breakfast; 9:15 AM – 11:30 AM ‘Design, Develop, Deliver’ Session; 11:30 AM – 12:00 PM Tea Break; 12:00 PM – 1:00 PM ‘Design, Develop, Deliver’ Continues; 1:15 PM – 2:15 PM Lunch; 2:30 PM – 3:30 PM Presentation Setup; 3:45 PM – 5:30 PM Judgement of Presentations; 5:30 PM – 6:00 PM High Tea; 6:30 PM Onwards Prize Distribution & Closing Ceremony.",
+        "No unrelated content (e.g., duplicated 'Principal’s Dinner' entries, incorrect weekday labels, or incorrect pairings like 'Quiz Hunt' in the wrong time slot) appears in the schedule."
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Replace any hardcoded mint/emerald/green/gray/white color utilities in site sections and navigation with theme token-based classes (e.g., bg-background, text-foreground, text-primary, bg-secondary, text-accent-foreground, border-border) so the updated blue/turquoise/gold theme is applied consistently across the app.",
-      "target": "frontend",
+      "text": "Publish (upload) the updated Programme Overview to the live homepage so the new schedule is visible in production.",
+      "target": "both",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "Classic blue, turquoise, and gold"
+          "upload it"
         ]
       },
       "acceptanceCriteria": [
-        "Components that currently use hardcoded emerald/green styling (e.g., AdminPanelSection headings/buttons) are updated to use theme tokens instead of fixed Tailwind colors like text-emerald-700 or bg-emerald-600.",
-        "Nav bar, hero, forms, cards, and admin overlay all visually reflect the updated theme without leftover mint/emerald-specific colors.",
-        "The page background gradient continues to work with the new palette and does not clash with text readability."
+        "After deployment, visiting the homepage shows the updated Programme Overview content from REQ-1 without requiring any manual steps."
       ]
     }
   ],
   "constraints": [
-    "Do not edit files under frontend/src/components/ui (read-only shadcn components); compose via props/classes from consuming components instead.",
-    "Do not modify immutable hook files listed in SYSTEM_CONTEXT (e.g., frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx)."
+    "Do not edit any files under frontend/src/components/ui or any paths listed as immutable in SYSTEM_CONTEXT.",
+    "Keep the backend as a single Motoko actor; only change backend code if required for publishing."
   ],
   "nonGoals": [
-    "No backend changes (Motoko actor logic/persistence) are required for this theme update.",
-    "Do not change app content, section structure, or add new features unrelated to theming."
+    "Adding new event days beyond DAY 1–DAY 3.",
+    "Adding authentication, admin editing UI, or a CMS for programme content.",
+    "Introducing external databases or third-party hosting/integrations."
   ],
   "imageRequirements": {
     "required": [],
     "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }

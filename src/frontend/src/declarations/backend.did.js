@@ -8,10 +8,72 @@
 
 import { IDL } from '@icp-sdk/core/candid';
 
-export const idlService = IDL.Service({});
+export const EventId = IDL.Nat;
+export const Event = IDL.Record({
+  'id' : EventId,
+  'title' : IDL.Text,
+  'description' : IDL.Text,
+  'end_time' : IDL.Text,
+  'start_time' : IDL.Text,
+  'location' : IDL.Text,
+});
+export const ProgrammeOverview = IDL.Record({
+  'last_updated' : IDL.Text,
+  'events' : IDL.Vec(Event),
+});
+
+export const idlService = IDL.Service({
+  'addEvent' : IDL.Func(
+      [IDL.Text, IDL.Text, IDL.Text, IDL.Text, IDL.Text],
+      [EventId],
+      [],
+    ),
+  'deleteEvent' : IDL.Func([EventId], [], []),
+  'getAllEvents' : IDL.Func([], [IDL.Vec(Event)], ['query']),
+  'getEvent' : IDL.Func([EventId], [IDL.Opt(Event)], ['query']),
+  'getProgrammeOverview' : IDL.Func([], [ProgrammeOverview], ['query']),
+  'updateEvent' : IDL.Func(
+      [EventId, IDL.Text, IDL.Text, IDL.Text, IDL.Text, IDL.Text],
+      [],
+      [],
+    ),
+  'updateProgrammeOverview' : IDL.Func([IDL.Text], [], []),
+});
 
 export const idlInitArgs = [];
 
-export const idlFactory = ({ IDL }) => { return IDL.Service({}); };
+export const idlFactory = ({ IDL }) => {
+  const EventId = IDL.Nat;
+  const Event = IDL.Record({
+    'id' : EventId,
+    'title' : IDL.Text,
+    'description' : IDL.Text,
+    'end_time' : IDL.Text,
+    'start_time' : IDL.Text,
+    'location' : IDL.Text,
+  });
+  const ProgrammeOverview = IDL.Record({
+    'last_updated' : IDL.Text,
+    'events' : IDL.Vec(Event),
+  });
+  
+  return IDL.Service({
+    'addEvent' : IDL.Func(
+        [IDL.Text, IDL.Text, IDL.Text, IDL.Text, IDL.Text],
+        [EventId],
+        [],
+      ),
+    'deleteEvent' : IDL.Func([EventId], [], []),
+    'getAllEvents' : IDL.Func([], [IDL.Vec(Event)], ['query']),
+    'getEvent' : IDL.Func([EventId], [IDL.Opt(Event)], ['query']),
+    'getProgrammeOverview' : IDL.Func([], [ProgrammeOverview], ['query']),
+    'updateEvent' : IDL.Func(
+        [EventId, IDL.Text, IDL.Text, IDL.Text, IDL.Text, IDL.Text],
+        [],
+        [],
+      ),
+    'updateProgrammeOverview' : IDL.Func([IDL.Text], [], []),
+  });
+};
 
 export const init = ({ IDL }) => { return []; };

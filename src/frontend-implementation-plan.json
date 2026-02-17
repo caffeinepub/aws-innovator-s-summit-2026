@@ -1,52 +1,37 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Retheme app to classic blue, turquoise, and gold using existing OKLCH tokens",
+  "title": "Update homepage Programme Overview schedule (May 1–3, 2026)",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Update OKLCH CSS variables for primary/secondary/accent (and foreground counterparts) to a classic blue/turquoise/gold palette in light and dark modes so Tailwind + shadcn theme utilities inherit automatically.",
+      "summary": "Replace the homepage Programme Overview content with the cleaned, day-wise DAY 1–DAY 3 schedule (May 1–3, 2026) with correct themes, labels, and time-slot/activity pairings.",
       "acceptanceCriteria": [
-        "In both frontend/index.css and frontend/src/index.css, the CSS variables for --primary/--secondary/--accent (and their -foreground counterparts) are updated to reflect a classic blue, turquoise, and gold palette.",
-        "Light mode and dark mode remain readable (sufficient contrast between background/foreground and for buttons/links).",
-        "No Tailwind config changes are required beyond continuing to map colors to CSS variables as currently implemented."
+        "The Programme Overview section renders three day cards (DAY 1, DAY 2, DAY 3).",
+        "DAY 1 shows theme 'Arrival & Ice-Breaking' and timings/activities: 10:00 AM – 3:00 PM Arrival; 3:00 PM – 4:00 PM Registration and Introduction; 4:00 PM – 4:25 PM Tea Break; 4:30 PM – 7:00 PM Ice-Breaking Activities; 7:30 PM – 8:15 PM Dinner.",
+        "DAY 2 shows theme 'Hands-on Workshops on Robotics & AI' and timings/activities: 8:00 AM – 9:00 AM Breakfast; 9:00 AM – 11:30 AM Opening Ceremony; 11:30 AM – 12:00 PM Tea Break; 12:00 PM – 1:00 PM Session 1st; 1:30 PM – 2:30 PM Lunch; 2:40 PM – 4:15 PM Session 2nd; 4:15 PM – 4:45 PM Tea Break; 4:45 PM – 6:00 PM Robotics & AI Workshops; 7:30 PM Onwards Principal’s Dinner + Quiz Hunt.",
+        "DAY 3 shows theme 'Design, Develop, Deliver' and timings/activities: 8:00 AM – 9:00 AM Breakfast; 9:15 AM – 11:30 AM ‘Design, Develop, Deliver’ Session; 11:30 AM – 12:00 PM Tea Break; 12:00 PM – 1:00 PM ‘Design, Develop, Deliver’ Continues; 1:15 PM – 2:15 PM Lunch; 2:30 PM – 3:30 PM Presentation Setup; 3:45 PM – 5:30 PM Judgement of Presentations; 5:30 PM – 6:00 PM High Tea; 6:30 PM Onwards Prize Distribution & Closing Ceremony.",
+        "No unrelated content (e.g., duplicated 'Principal’s Dinner' entries, incorrect weekday labels, or incorrect pairings like 'Quiz Hunt' in the wrong time slot) appears in the schedule."
       ],
       "file_operations": [
         {
-          "path": "frontend/index.css",
+          "path": "frontend/src/components/sections/ProgrammeSection.tsx",
           "operation": "modify",
-          "description": "Update :root and .dark theme tokens for --primary/--secondary/--accent and their -foreground counterparts to classic blue (primary), turquoise (secondary), and gold (accent) using the existing OKLCH CSS variable system so Tailwind/shadcn-ui color utilities inherit automatically. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Mirror the same OKLCH token updates for --primary/--secondary/--accent and their -foreground counterparts in both :root and .dark to keep the theme consistent regardless of which global stylesheet is referenced by the app. Verify the component's usage instructions before implementing."
+          "description": "Update the in-component `days` data to exactly match the cleaned Programme Overview for DAY 1–DAY 3 (May 1–3, 2026): correct date/weekday labels, themes/titles, and each required time-slot-to-activity pairing; remove any incorrect/duplicated items currently present."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Replace hardcoded mint/emerald/green/gray/white Tailwind utilities in app sections/navigation with theme token-based classes to ensure consistent theming and readable gradients.",
+      "summary": "Ensure the updated Programme Overview is what renders on the live homepage after deployment (no manual post-deploy steps).",
       "acceptanceCriteria": [
-        "Components that currently use hardcoded emerald/green styling (e.g., AdminPanelSection headings/buttons) are updated to use theme tokens instead of fixed Tailwind colors like text-emerald-700 or bg-emerald-600.",
-        "Nav bar, hero, forms, cards, and admin overlay all visually reflect the updated theme without leftover mint/emerald-specific colors.",
-        "The page background gradient continues to work with the new palette and does not clash with text readability."
+        "After deployment, visiting the homepage shows the updated Programme Overview content from REQ-1 without requiring any manual steps."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/sections/AdminPanelSection.tsx",
-          "operation": "modify",
-          "description": "Replace hardcoded emerald/white/gray Tailwind classes with theme token-based classes (e.g., text-primary, bg-card, bg-primary, text-primary-foreground, bg-muted, border-border) while continuing to compose styling via consuming component className props (do not edit shadcn-ui files under frontend/src/components/ui). Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/AdminPanelOverlay.tsx",
-          "operation": "modify",
-          "description": "Replace hardcoded overlay backdrop colors (e.g., bg-black/bg-opacity-50) with theme token-based classes (e.g., foreground/background-based alpha utilities) so the admin overlay visually aligns with the updated palette while keeping content readable. Verify the component's usage instructions before implementing."
-        },
-        {
           "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Audit and, if needed, adjust the page-level background gradient class usage to ensure it remains token-based and readable with the new blue/turquoise/gold palette (keep the same section structure and no new features). Verify the component's usage instructions before implementing."
+          "description": "Confirm the homepage render path continues to include `ProgrammeSection` in the main page flow (not behind any conditional rendering) so that deploying the frontend build automatically publishes the updated schedule."
         }
       ]
     }
